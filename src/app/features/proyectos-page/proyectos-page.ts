@@ -1,38 +1,43 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, signal, Signal } from '@angular/core';
+import { ListadoProyectos } from '../proyectos-page/component/listado-proyectos/listado-proyectos';
 
-interface Proyecto {
-  id: number;
-  nombre: string;
-  descripcion: string;
-}
 
 @Component({
   selector: 'app-proyectos-page',
-  standalone: true,
-  imports: [CommonModule],
+  imports: [ListadoProyectos],
   templateUrl: './proyectos-page.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProyectosPage {
-  name = signal<string>('');
-  descripcion = signal<string>('');
-  
-  proyectos = signal<Proyecto[]>([
-    { id: 1, nombre: 'Proyecto A', descripcion: 'Descripción' }
-  ]);
 
-  changeName(value: string) { this.name.set(value); }
-  changeDescription(value: string) { this.descripcion.set(value); }
+  name = signal('');
+  description = signal('');
+
+  proyectos = signal<Proyecto[]>([
+    { id: 1, nombre: 'Proyecto A', descripcion: 'descripcion' }
+  ]);
+  
+  changeName(value: string) {
+    this.name.set(value);
+  }
+
+  changeDescription(value: string) {
+    this.description.set(value);
+  }
 
   addProyecto() {
-    const newProyecto: Proyecto = {
+
+    const nuevo: Proyecto = {
       id: this.proyectos().length + 1,
       nombre: this.name(),
-      descripcion: this.descripcion()
+      descripcion: this.description()
     };
-    this.proyectos.set([...this.proyectos(), newProyecto]);
+
+    this.proyectos.update(prev => [...prev, nuevo]);
     this.name.set('');
-    this.descripcion.set('');
+    this.description.set('');
+
+
   }
+
 }
