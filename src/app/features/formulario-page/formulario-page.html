@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col">
+
+    <form [formGroup]="myForm" 
+    (ngSubmit)="onSubmit()" autocomplete="off">
+
+      <!-- Campo: Nombre -->
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Nombre</label>
+        <div class="col-sm-9">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nombre del usuario"
+            formControlName="nombre"
+          >
+          @if(isvalidField('nombre'))
+          {
+            <p>{{getFieldError('nombre')}}</p>
+          }
+        </div>
+      </div>
+
+      <!-- Campo: Edad -->
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Edad</label>
+        <div class="col-sm-9">
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Edad del usuario"
+            formControlName="edad"
+          >
+          @if (isvalidField('edad'))
+          {
+            <p>{{getFieldError('edad')}}</p>
+          }
+        </div>
+      </div>
+
+      <!-- Campo: Correo -->
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Correo</label>
+        <div class="col-sm-9">
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Correo electrónico"
+            formControlName="correo"
+          >
+          @if (isvalidField('correo'))
+          {
+            <p>{{getFieldError('correo')}}</p>
+          }
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary float-end">Enviar</button>
+
+    </form>
+
+  </div>
+</div>

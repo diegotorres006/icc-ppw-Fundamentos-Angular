@@ -3,6 +3,7 @@ import { HomePage } from './features/homePage/homePage';
 import { Perfil } from './features/PerfilPage/Perfil';
 import { ProyectosDosPage } from './features/proyectos-dos-page/proyectos-dos-page';
 import { ProyectosPage } from './features/proyectos-page/proyectos-page';
+import { FormularioPage } from './features/formulario-page/formulario-page';
 
 export const routes: Routes = [
   {
@@ -20,5 +21,9 @@ export const routes: Routes = [
   {
     path: 'proyectos-page',
     component: ProyectosPage
+  },
+  {
+    path: 'formulario-page',
+    component: FormularioPage
   }
 ];
