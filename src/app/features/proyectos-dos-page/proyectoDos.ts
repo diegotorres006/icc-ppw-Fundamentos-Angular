@@ -6,7 +6,7 @@ import { AddProyecto } from '../proyectos-page/component/add-proyecto/add-proyec
 @Component({
   selector: 'app-proyectos-dos-page',
   imports: [ListadoProyectos, AddProyecto],
-  templateUrl: './proyectos-dos-page.html',
+  templateUrl: './proyectoDos.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProyectosDosPage { 

@@ -1,0 +1,35 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label>Nombre</label>
+    <input formControlName="nombre" class="form-control" placeholder="Ingrese su nombre">
+    @if(formUtils.isValidField(myForm, 'nombre')){
+      <span class="form-text text-danger">
+        {{ formUtils.getFieldError(myForm, 'nombre') }}
+      </span>
+    }
+  </div>
+
+  <div class="mb-3">
+    <label>Edad</label>
+    <input formControlName="edad" type="number" class="form-control">
+    @if(formUtils.isValidField(myForm, 'edad')){
+      <span class="form-text text-danger">
+        {{ formUtils.getFieldError(myForm, 'edad') }}
+      </span>
+    }
+  </div>
+
+  <div class="mb-3">
+    <label>Correo</label>
+    <input formControlName="correo" class="form-control" placeholder="example@mail.com">
+    @if(formUtils.isValidField(myForm, 'correo')){
+      <span class="form-text text-danger">
+        {{ formUtils.getFieldError(myForm, 'correo') }}
+      </span>
+    }
+
+  </div>
+
+    <button class="btn btn-primary float-end" type="submit">Guardar</button>
+
+</form>

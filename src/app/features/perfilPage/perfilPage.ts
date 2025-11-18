@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-perfil',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './Perfil.html',
+  templateUrl: './perfilPage.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Perfil {
